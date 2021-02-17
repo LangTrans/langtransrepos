@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<title>LangTrans Repos</title>
 	
@@ -21,7 +21,7 @@
 </head>
 <body>
 <div style="display:inline-block;float: inherit;">
-	<button onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSdGxPYTfBodiGZAveRT8L_VGjv7PbYOcEqERZ4l5NHfXgDW-w/viewform'" 
+	<button onclick="location.href='https://forms.gle/EC1fsqonEUWBvf5t9'" 
 			style="background-color: black;border-radius: 10px;display:inline-block;">
 		<font color="white">Submit</font>
 	</button>
@@ -31,22 +31,19 @@
 	<center><h1>LangTrans Repos</h1></center>
 </div>
 <table class="table table-striped">
-    <tr  class="bg-info">
+    <tr class="bg-info">
         <th>Author</th>
         <th>Customized Language</th>
         <th>Repo URL</th>
         <th>Description</th>
     </tr>
 
-    <tbody id="myTable">
-        
-    </tbody>
+    <tbody id="myTable"></tbody>
 </table>
 </body>
 <script>
 	var request = new XMLHttpRequest()
 
-// Open a new connection, using the GET request on the URL endpoint
 	request.open('GET', 'https://api.sheety.co/29edc0f84d200e820cf95e0aca8b3513/langTransRepos/submits', true)
 
 	request.onload = function () {
@@ -55,20 +52,18 @@
 
 	}
 
-	// Send request
 	request.send()
 
 	function buildTable(data){
 		var table = document.getElementById('myTable')
 
 		for (var i = 0; i < data.length; i++){
-			var row = `<tr>
+			table.innerHTML += `<tr>
 							<td>${data[i].nameOfAuthor}</td>
 							<td>${data[i].languageCustomized}</td>
 							<td><a href="${data[i].repoUrl}">${data[i].repoUrl}</u></td>
 							<td>${data[i].description}</td>
 					  </tr>`
-			table.innerHTML += row
 		}
 	}
 </script>
