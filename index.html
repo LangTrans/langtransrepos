@@ -44,11 +44,11 @@
 <script>
 	var request = new XMLHttpRequest()
 
-	request.open('GET', 'https://api.sheety.co/29edc0f84d200e820cf95e0aca8b3513/langTransRepos/submits', true)
+	request.open('GET', 'https://sheetsu.com/apis/v1.0su/48fb7de8784f', true)
 
 	request.onload = function () {
 	  var data = JSON.parse(this.response)
-	  buildTable(data["submits"])
+	  buildTable(data)
 
 	}
 
